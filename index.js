@@ -21,16 +21,13 @@ function isPerfectCube(num) {
 }
 
 function isArmstrong(num) {
-  let digits = [],
+  let strNum = num.toString(),
     temp = num,
     sum = 0;
   while (temp > 0) {
-    digits.push(temp % 10);
-    temp /= 10;
+    sum += Math.pow(temp % 10, strNum.length);
+    temp = Math.floor(temp/10);
   }
-  sum = digits
-    .map((el) => Math.pow(el, digits.length))
-    .reduce((acc, cu) => acc + cu);
   return sum === num;
 }
 
